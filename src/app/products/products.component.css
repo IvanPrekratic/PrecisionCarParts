@@ -1,3 +1,22 @@
-:host {
-  display: block;
+.naslov{
+  text-align:center;
+}
+.inline{
+  display: inline-block;
+}
+.droplabel{
+  padding-right: 10px;
+}
+.poravnanje{
+  text-align: right;
+}
+.slikaproizvoda{
+  width: 100%;
+}
+.no-margin{
+  margin: 0;
+}
+.product{
+  margin: 10px 20px 0 20px;
+  background-color: aqua;
 }
