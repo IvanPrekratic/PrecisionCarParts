@@ -1,6 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
+import { Subscription } from 'rxjs';
+import { User } from '../../user/user.model';
 
 @Component({
     selector: 'app-nav',
@@ -8,24 +11,31 @@ import { Router } from '@angular/router';
     styleUrl: './nav.component.css',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class NavComponent implements OnInit{
+export class NavComponent implements OnInit {
 
-    constructor(public router: Router) { }
+    constructor(public router: Router, public auth: AuthService) { }
 
-    authenticated=false;
+    authenticated = false;
+    authChangeSubscription: Subscription | null = null;
 
 
-    ngOnInit(): void {
-        //this.authenticated=this.auth.isAuthenticated();
-   
-        /*
-        this.authChangeSubscription=this.auth.authChange
+    ngOnInit() {
+        this.authenticated = this.auth.isAuthenticated();
+
+        this.authChangeSubscription = this.auth.authChange
             .subscribe(res => {
-              this.authenticated=this.auth.isAuthenticated();
+                this.authenticated = this.auth.isAuthenticated();
             });
-        */
-     }
-     getClass(a:string){
-        return this.router.url==a ? 'active' : '';
-      }
+        console.log('auth: '+this.authenticated);
+        console.log('suthserice: '+ this.auth.isAuthenticated());
+    }
+    getClass(a: string) {
+        return this.router.url == a ? 'active' : '';
+    }
+    logout() {
+        this.auth.logout();
+    }
+    reRoute(ruta: String){
+        this.router.navigate([ruta]);
+    }
 }

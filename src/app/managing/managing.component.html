@@ -1,0 +1,31 @@
+<app-nav></app-nav>
+<div>
+    <div>
+        <h2>Add new item:</h2>
+        <form (submit)="submit()" [formGroup]="itemForm">
+            <label for="name">Part name:</label><br>
+            <input type="text" [(ngModel)]="name" required formControlName="name" placeholder="Name"><br>
+    
+            <label for="description">Description:</label><br>
+            <input type="text" [(ngModel)]="description" required formControlName="description" placeholder="Description"><br>
+    
+            <label for="brand">Part brand:</label><br>
+            <input type="brand" [(ngModel)]="brand" required formControlName="brand" placeholder="Brand"><br>
+    
+            <label for="oe_number">OE part number:</label><br>
+            <input type="text" [(ngModel)]="oe_number" required formControlName="oe_number" placeholder="OE part number"><br>
+    
+            <label for="price">Price:</label><br>
+            <input type="number"[(ngModel)]="price" required formControlName="price" placeholder="Price"><br>
+
+            <label for="price">Stock:</label><br>
+            <input type="number"[(ngModel)]="stock" required formControlName="stock" placeholder="Stock"><br>
+
+            <label for="image">Image:</label><br>
+            <input type="file" #slika [(ngModel)]="image" (change)="onFileSelected(slika)" id="image" formControlName="image" placeholder="Image"><br>
+    
+            <button type="submit" [disabled]="!(name!=null && description!=null && brand!=null && oe_number!=null && price!=null && image!=null && stock!= null)">Add item</button>
+        </form>
+    </div>
+
+</div>

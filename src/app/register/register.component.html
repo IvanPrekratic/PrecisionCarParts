@@ -1,0 +1,25 @@
+<app-nav></app-nav>
+<div>
+    <h2>Register form:</h2>
+    <form (submit)="submit()" [formGroup]="registerForm">
+        <label for="username">Username:</label><br>
+        <input type="text" [(ngModel)]="username" required formControlName="username" placeholder="Username">
+        <div *ngIf="username.length < 4 && username" class="err">Username mora imati barem 4 znaka</div><br>
+
+        <label for="password1">Password:</label><br>
+        <input type="password" [(ngModel)]="password1" required formControlName="password" placeholder="Password"><br>
+
+        <label for="password2">Confirm password:</label><br>
+        <input type="password" [(ngModel)]="password2" required formControlName="password2"
+            placeholder="Confirm password">
+        <div *ngIf="password1 !== password2 && password2" class="err">Lozinke moraju biti iste</div><br>
+
+        <label for="name">Name:</label><br>
+        <input type="text" [(ngModel)]="name" required formControlName="name" placeholder="Name"><br>
+
+        <label for="email">E-mail:</label><br>
+        <input type="email" required formControlName="email" placeholder="Email"><br>
+
+        <button type="submit">Register!</button>
+    </form>
+</div>

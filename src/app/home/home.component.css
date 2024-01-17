@@ -4,7 +4,7 @@
 .background{
   margin: 0;
   height: 50vh;
-  background-image: url(../media/bmwf30bg.jpeg);
+  background-image: url(../../assets/bmwf30bg.jpeg);
   background-position: 50% 70%;
   background-size: cover;
   background-repeat: no-repeat;

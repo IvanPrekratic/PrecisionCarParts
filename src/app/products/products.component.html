@@ -1,3 +1,4 @@
+<app-nav></app-nav>
 <div class="main container-fluid">
     <h2 class="naslov">Search model specific parts</h2>
     <div class="row justify-content-left">
@@ -48,18 +49,17 @@
             <button type="button" class="btn-sm btn-danger">Remove filters</button>
         </div>
     </div>
-    <div class="row justify-content-center product">
+    <div class="row justify-content-center product" *ngFor="let k of items, let i = index">
+        <div class="col-2 bg-image background" [style.background-image]="'url(../../assets/' + k.image + ')'">
+        </div>
+        <div class="col-7">
+            <h4 class="no-margin top-margin">{{k.name}}</h4>
+            <p class="no-margin">Description: {{k.description}}</p>
+            <p class="no-margin">Brand: {{k.brand}}</p>
+            <p class="no-margin">OE part number: {{k.oe_number}}</p>
+        </div>
         <div class="col-2">
-            <img src="../media/proba.jpeg" class="slikaproizvoda">
-        </div>
-        <div class="col-8">
-            <h4 class="no-margin">Part name</h4>
-            <p class="no-margin">Description:</p>
-            <p class="no-margin">Brand:</p>
-            <p class="no-margin">OE part number:</p>
-        </div>
-        <div class="col-1">
-            <p>Price: €</p>
+            <p class="top-margin">Price: {{k.price}} €</p>
         </div>
 
     </div>

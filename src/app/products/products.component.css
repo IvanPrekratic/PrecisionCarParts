@@ -16,7 +16,17 @@
 .no-margin{
   margin: 0;
 }
+.top-margin{
+  margin-top: 10px;
+}
 .product{
   margin: 10px 20px 0 20px;
   background-color: aqua;
+}
+.background{
+  margin: 0;
+  height: 25vh;
+  background-size:contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }

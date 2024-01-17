@@ -1,4 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { AuthService } from '../shared/auth.service';
+import { User } from '../user/user.model';
 
 @Component({
     selector: 'app-home',
@@ -6,6 +8,15 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     styleUrl: './home.component.css',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomeComponent {
-    
- }
+export class HomeComponent implements OnInit{
+    constructor(private auth: AuthService){}
+    curUser: User | null = null;
+
+    ngOnInit() {
+        this.curUser = this.auth.getUser();
+        console.log(this.curUser);
+    }
+    logout(){
+        this.auth.logout();
+    }
+}
