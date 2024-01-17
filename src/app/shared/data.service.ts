@@ -10,9 +10,7 @@ import { Item } from '../managing/item.model';
   providedIn: 'root'
 })
 export class DataService {
-  constructor(private http: HttpClient, private router: Router) {
-
-  }
+  constructor(private http: HttpClient, private router: Router) { }
 
   addUser(user: UserReg) {
     return this.http.post('https://jspro-16702-default-rtdb.europe-west1.firebasedatabase.app/users.json', user).subscribe((res: any) => {

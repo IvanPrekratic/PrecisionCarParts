@@ -21,17 +21,17 @@ export class ItemsService {
                 this.itemSubject.next(this.items);
             })
     }
-    getPosts() {
+    getItems() {
         return this.itemSubject;
     }
-    deletePost(id: string) {
+    deleteItem(id: string) {
         this.dataService.deleteItem(id)
             .subscribe((res => {
                 this.items = this.items.filter(c => c.itemID != id);
                 this.itemSubject.next(this.items);
             }));
     }
-    editPost(item: Item) {
+    editItem(item: Item) {
         this.dataService.editItem(item)
             .subscribe((res => {
                 this.items[this.items.findIndex(c => c.itemID == item.itemID)] = item;

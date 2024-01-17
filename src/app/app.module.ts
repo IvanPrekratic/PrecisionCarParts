@@ -14,6 +14,8 @@ import { AuthService } from './shared/auth.service';
 import { CommonModule } from '@angular/common';
 import { RegisterComponent } from './register/register.component';
 import { ManagingComponent } from './managing/managing.component';
+import { RouterLink, RouterLinkActive, RouterModule, RouterOutlet } from '@angular/router';
+import { ItemsService } from './products/items.service';
 
 @NgModule({
   declarations: [
@@ -31,12 +33,19 @@ import { ManagingComponent } from './managing/managing.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule,
+    RouterLink,
+    RouterOutlet,
+    RouterLinkActive,
+    ReactiveFormsModule,
   ],
   providers: [
+    provideClientHydration(),
     DataService,
     HttpClient,
     AuthService,
+    ItemsService
   ],
   bootstrap: [AppComponent]
 })
