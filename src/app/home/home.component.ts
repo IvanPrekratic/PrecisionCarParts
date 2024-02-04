@@ -14,7 +14,6 @@ export class HomeComponent implements OnInit{
 
     ngOnInit() {
         this.curUser = this.auth.getUser();
-        console.log(this.curUser);
     }
     logout(){
         this.auth.logout();

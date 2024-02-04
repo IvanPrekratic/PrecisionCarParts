@@ -35,7 +35,7 @@ export class NavComponent implements OnInit {
     logout() {
         this.auth.logout();
     }
-    reRoute(ruta: String){
+    reRoute(ruta: string){
         this.router.navigate([ruta]);
     }
 }

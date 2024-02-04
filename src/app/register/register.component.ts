@@ -31,10 +31,10 @@ export class RegisterComponent {
             });
     }
     
-    username: String = '';
-    password1: String = '';
-    password2: String = '';
-    name: String = '';
+    username: string = '';
+    password1: string = '';
+    password2: string = '';
+    name: string = '';
 
     submit() {
         this.auth.register(this.registerForm.value);

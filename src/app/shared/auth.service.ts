@@ -27,7 +27,7 @@ export class AuthService {
     constructor(private router: Router, private data: DataService, private userService: UserService) { }
 
 
-    login(credentials: { username: String, password: String }) {
+    login(credentials: { username: string, password: string }) {
         this.userSubject = this.userService.getUsers();
         this.subscription = this.userSubject
             .subscribe(res => {
@@ -78,8 +78,8 @@ export class AuthService {
     isAuthenticated() {
         return this.user != null;
     }
-    newItem(itemInfo: { name: String,description: String, brand: String, oe_number: string, price:number, stock: number, image:String }, imagename: String) {
-        let item: ItemUpl = new ItemUpl(itemInfo.name, itemInfo.description, itemInfo.brand, itemInfo.oe_number, itemInfo.price, itemInfo.stock, imagename);
+    newItem(itemInfo: { name: string,carMake: string, carModel:string, description: string, brand: string, oe_number: string, category: string, price:number, stock: number, image:string}, imagename: string) {
+        let item: ItemUpl = new ItemUpl(itemInfo.name, itemInfo.carMake, itemInfo.carModel, itemInfo.description, itemInfo.brand, itemInfo.oe_number, itemInfo.price, itemInfo.stock, imagename, itemInfo.category);
         this.data.addItem(item);
     }
 

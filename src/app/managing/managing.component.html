@@ -6,6 +6,12 @@
             <label for="name">Part name:</label><br>
             <input type="text" [(ngModel)]="name" required formControlName="name" placeholder="Name"><br>
     
+            <label for="description">Car make:</label><br>
+            <input type="text" [(ngModel)]="carMake" required formControlName="carMake" placeholder="Make"><br>
+
+            <label for="description">Car model:</label><br>
+            <input type="text" [(ngModel)]="carModel" required formControlName="carModel" placeholder="Model"><br>
+
             <label for="description">Description:</label><br>
             <input type="text" [(ngModel)]="description" required formControlName="description" placeholder="Description"><br>
     
@@ -14,6 +20,9 @@
     
             <label for="oe_number">OE part number:</label><br>
             <input type="text" [(ngModel)]="oe_number" required formControlName="oe_number" placeholder="OE part number"><br>
+
+            <label for="category">Category:</label><br>
+            <input type="text" [(ngModel)]="category" required formControlName="category" placeholder="Category"><br>
     
             <label for="price">Price:</label><br>
             <input type="number"[(ngModel)]="price" required formControlName="price" placeholder="Price"><br>
