@@ -2,37 +2,48 @@
 <div class="main container-fluid">
     <h2 class="naslov">Search model specific parts</h2>
     <div class="row justify-content-left">
-        <div class="col-2 poravnanje"><p>Make:</p></div>
+        <div class="col-2 poravnanje">
+            <p>Make:</p>
+        </div>
         <div class="col-2">
             <div class="dropdown inline">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span id="selectedMake">Choose make</span></button>
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span id="selectedMake">Choose
+                        make</span></button>
                 <div class="dropdown-menu odabir-make" aria-labelledby="dropdownMenuButton">
-                    <a *ngFor="let make of carMakes" class="dropdown-item" (click)="filterByMake(make)" >{{make}}</a>
+                    <a *ngFor="let make of carMakes" class="dropdown-item" (click)="filterByMake(make)">{{make}}</a>
                 </div>
             </div>
         </div>
     </div>
     <div class="row justify-content-left">
-        <div class="col-2 poravnanje"><p>Model:</p></div>
+        <div class="col-2 poravnanje">
+            <p>Model:</p>
+        </div>
         <div class="col-2">
             <div class="dropdown inline">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span id="selectedModel">Choose model</span></button>
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span id="selectedModel">Choose
+                        model</span></button>
                 <div class="dropdown-menu odabir-model" aria-labelledby="dropdownMenuButton">
-                    <a *ngFor="let model of carModels" class="dropdown-item" (click)="filterByModel(model)" >{{model}}</a>
+                    <a *ngFor="let model of carModels" class="dropdown-item"
+                        (click)="filterByModel(model)">{{model}}</a>
                 </div>
             </div>
         </div>
     </div>
     <div class="row justify-content-left">
-        <div class="col-2 poravnanje"><p>Category:</p></div>
+        <div class="col-2 poravnanje">
+            <p>Category:</p>
+        </div>
         <div class="col-2">
             <div class="dropdown inline">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span id="selectedCateory">Choose category</span></button>
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span id="selectedCateory">Choose
+                        category</span></button>
                 <div class="dropdown-menu odabir-category" aria-labelledby="dropdownMenuButton">
-                    <a *ngFor="let cat of categories" class="dropdown-item" (click)="filterByCategory(cat.name)" >{{cat.name}}</a>
+                    <a *ngFor="let cat of categories" class="dropdown-item"
+                        (click)="filterByCategory(cat.name)">{{cat.name}}</a>
                 </div>
             </div>
         </div>
@@ -43,7 +54,7 @@
             <button type="button" class="btn-sm btn-danger" (click)="removeFilters()">Remove filters</button>
         </div>
     </div>
-    <div *ngFor="let k of itemsToShow; let i = index" class="row justify-content-center product" >
+    <div *ngFor="let k of itemsToShow; let i = index" class="row justify-content-center product">
         <div class="col-2 bg-image background" [style.background-image]="'url(../../assets/' + k.image + ')'">
         </div>
         <div class="col-7">
@@ -53,8 +64,11 @@
             <p class="no-margin">OE part number: {{k.oe_number}}</p>
         </div>
         <div class="col-2">
-            <p class="top-margin">Price: {{k.price}} €</p>
-            <button (click)="addToCart(k.itemID)">Add to cart</button>
+            <p class="top-margin">Price: {{k.price|number
+                : '1.2'}} €</p>
+            <p class="kv">Quantity:</p>
+            <input class="kolicina" type="number" [(ngModel)]="kolicina[i]" [defaultValue]="0">
+            <button class="dodaj" (click)="addToCart(k, i)">Add to cart</button>
         </div>
 
     </div>

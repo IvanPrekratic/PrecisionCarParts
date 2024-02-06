@@ -5,6 +5,10 @@ import { BehaviorSubject, Subscription } from 'rxjs';
 import { ItemsService } from './items.service';
 import { DataService } from '../shared/data.service';
 import { Category } from '../managing/category.model';
+import { CartService } from '../shared/cart.service';
+import { AuthService } from '../shared/auth.service';
+import { User } from '../user/user.model';
+import Swal from 'sweetalert2';
 
 @Component({
     selector: 'app-products',
@@ -13,8 +17,8 @@ import { Category } from '../managing/category.model';
 })
 export class ProductsComponent implements OnInit, OnDestroy {
 
-    constructor(private itemService: ItemsService, private dataService: DataService) { }
-
+    constructor(private auth: AuthService, private itemService: ItemsService, private dataService: DataService, private cartService: CartService) { }
+    curUser: User | null = null;
 
     items: Item[] = [];
     itemsToShow: Item[] = [];
@@ -25,10 +29,13 @@ export class ProductsComponent implements OnInit, OnDestroy {
     carMakes: string[] = [];
     carModels: string[] = [];
     categorySubject: BehaviorSubject<Category[]> = new BehaviorSubject<Category[]>([]);
+    kolicina: number[] = [];
+
 
     ngOnInit() {
         //let cat = {name: 'steering & suspension'};
         //this.dataService.addCategory(cat);
+        this.curUser = this.auth.getUser();
 
         this.dataService.getCategories()
             .subscribe(res => {
@@ -75,7 +82,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
     filterByModel(model: string) {
         this.itemsToShow = this.itemsToShow.filter(itm => itm.carModel === model);
     }
-    removeFilters(){
+    removeFilters() {
         this.itemsToShow = this.items;
         this.carModels = [];
         this.items.forEach(item => {
@@ -84,7 +91,13 @@ export class ProductsComponent implements OnInit, OnDestroy {
             }
         });
     }
-    addToCart(itemId: string){
-        
+    addToCart(item: Item, idx: number) {
+        this.cartService.addToCart(item, this.kolicina.at(idx) as number);
+        console.log(this.kolicina)
+        Swal.fire({
+            title: "Success!",
+            text: "Item is added to your cart!",
+            icon: "success"
+        });
     }
 }

@@ -16,6 +16,9 @@ import { RegisterComponent } from './register/register.component';
 import { ManagingComponent } from './managing/managing.component';
 import { RouterLink, RouterLinkActive, RouterModule, RouterOutlet } from '@angular/router';
 import { ItemsService } from './products/items.service';
+import { CartComponent } from './cart/cart.component';
+import { CartElement } from './cart/cart.element';
+import { CartService } from './shared/cart.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,8 @@ import { ItemsService } from './products/items.service';
     ProductsComponent,
     LoginComponent,
     RegisterComponent,
-    ManagingComponent
+    ManagingComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +49,8 @@ import { ItemsService } from './products/items.service';
     DataService,
     HttpClient,
     AuthService,
-    ItemsService
+    ItemsService,
+    CartService
   ],
   bootstrap: [AppComponent]
 })

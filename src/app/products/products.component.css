@@ -1,32 +1,57 @@
-.naslov{
-  text-align:center;
+.naslov {
+  text-align: center;
 }
-.inline{
+
+.inline {
   display: inline-block;
 }
-.droplabel{
+
+.droplabel {
   padding-right: 10px;
 }
-.poravnanje{
+
+.poravnanje {
   text-align: right;
 }
-.slikaproizvoda{
+
+.slikaproizvoda {
   width: 100%;
 }
-.no-margin{
+
+.no-margin {
   margin: 0;
 }
-.top-margin{
+
+.top-margin {
   margin-top: 10px;
 }
-.product{
+
+.product {
   margin: 10px 20px 0 20px;
   background-color: aqua;
 }
-.background{
+
+.background {
   margin: 0;
   height: 25vh;
-  background-size:contain;
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.kolicina {
+  display: inline-block;
+  width: 30%;
+  padding: 0;
+}
+
+.kv {
+  display: inline-block;
+  padding: 0;
+  width: 30%;
+}
+
+.dodaj {
+  display: flex;
+  flex-direction: column;
 }
