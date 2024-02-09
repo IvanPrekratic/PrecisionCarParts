@@ -19,6 +19,8 @@ import { ItemsService } from './products/items.service';
 import { CartComponent } from './cart/cart.component';
 import { CartElement } from './cart/cart.element';
 import { CartService } from './shared/cart.service';
+import { EditItemComponent } from './edit-item/edit-item.component';
+import { ViewItemComponent } from './view-item/view-item.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { CartService } from './shared/cart.service';
     LoginComponent,
     RegisterComponent,
     ManagingComponent,
-    CartComponent
+    CartComponent,
+    EditItemComponent,
+    ViewItemComponent
   ],
   imports: [
     BrowserModule,

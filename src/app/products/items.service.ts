@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Item } from '../managing/item.model';
 import { BehaviorSubject } from 'rxjs';
 import { DataService } from '../shared/data.service';
+import { ItemUpl } from '../managing/item-upl.model';
 
 @Injectable({
     providedIn: 'root'
@@ -31,12 +32,17 @@ export class ItemsService {
                 this.itemSubject.next(this.items);
             }));
     }
-    editItem(item: Item) {
+    editItem(itemForm: { name: string, carMake: string, carModel: string, description: string, brand: string, oe_number: string, category: string, price: number, stock: number, image: string }, image: string, itemId: string) {
+        let item: Item = new Item(itemForm.name, itemForm.carMake, itemForm.carModel, itemForm.description, itemForm.brand, itemForm.oe_number, itemForm.price, itemForm.price, image, itemForm.category, itemId);
         this.dataService.editItem(item)
             .subscribe((res => {
                 this.items[this.items.findIndex(c => c.itemID == item.itemID)] = item;
             }), error => {
                 console.log(error);
             });
+    }
+    newItem(itemInfo: { name: string, carMake: string, carModel: string, description: string, brand: string, oe_number: string, category: string, price: number, stock: number, image: string }, imagename: string) {
+        let item: ItemUpl = new ItemUpl(itemInfo.name, itemInfo.carMake, itemInfo.carModel, itemInfo.description, itemInfo.brand, itemInfo.oe_number, itemInfo.price, itemInfo.stock, imagename, itemInfo.category);
+        this.dataService.addItem(item);
     }
 }

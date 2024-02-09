@@ -44,12 +44,8 @@ export class AuthService {
                 this.user = user;
                 localStorage.setItem('user', JSON.stringify(this.user));
                 this.authChange.next(true);
-                setTimeout(() => { this.router.navigate(['/']) }, 500);
-                /*
-                this.router.navigate(['/'])
-                    .then(() => {
-                        window.location.reload();
-                    });*/
+                setTimeout(() => { this.router.navigate(['/']) }, 300);
+
 
             } else {
                 this.errorEmitter.next('Wrong credentials');
@@ -78,9 +74,6 @@ export class AuthService {
     isAuthenticated() {
         return this.user != null;
     }
-    newItem(itemInfo: { name: string,carMake: string, carModel:string, description: string, brand: string, oe_number: string, category: string, price:number, stock: number, image:string}, imagename: string) {
-        let item: ItemUpl = new ItemUpl(itemInfo.name, itemInfo.carMake, itemInfo.carModel, itemInfo.description, itemInfo.brand, itemInfo.oe_number, itemInfo.price, itemInfo.stock, imagename, itemInfo.category);
-        this.data.addItem(item);
-    }
+
 
 }

@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../shared/auth.service';
 import { matchValidator } from './validator';
+import { Md5 } from 'ts-md5';
 
 @Component({
     selector: 'app-register',
@@ -30,14 +31,18 @@ export class RegisterComponent {
                 this.errorMessage = error;
             });
     }
-    
+
     username: string = '';
     password1: string = '';
     password2: string = '';
     name: string = '';
 
     submit() {
+        let password: string = this.registerForm.get('password')!.value
+        let hash: string = Md5.hashStr(password);
+        this.registerForm.patchValue({ password: hash });
         this.auth.register(this.registerForm.value);
+        this.registerForm.patchValue({ password: password });
         this.router.navigate(['/']);
     }
 }

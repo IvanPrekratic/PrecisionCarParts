@@ -43,6 +43,7 @@
   display: inline-block;
   width: 30%;
   padding: 0;
+  margin-left: 10px;
 }
 
 .kv {
@@ -54,4 +55,11 @@
 .dodaj {
   display: flex;
   flex-direction: column;
+}
+
+.fontic {
+  text-decoration: none;
+  color: black;
+  font-size: 24px;
+  font-weight: 500;
 }

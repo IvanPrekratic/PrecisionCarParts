@@ -3,6 +3,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../shared/auth.service';
+import { Md5 } from 'ts-md5';
 
 @Component({
     selector: 'app-login',
@@ -32,6 +33,10 @@ export class LoginComponent implements OnInit {
         this.router.navigateByUrl('register');
     }
     submit() {
+        let password: string = this.loginForm.get('password')!.value
+        let hash: string = Md5.hashStr(password);
+        this.loginForm.patchValue({ password: hash });
         this.auth.login(this.loginForm.value);
+        this.loginForm.patchValue({ password: password });
     }
 }

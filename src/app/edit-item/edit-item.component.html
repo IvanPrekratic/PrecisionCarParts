@@ -1,0 +1,55 @@
+<app-nav></app-nav>
+<div class="row" style="display: flex; justify-content: center;">
+
+    <form (submit)="submit()" [formGroup]="itemForm" class="nosi-formu">
+        <div class="column">
+            <h3 style="display: inline-block;">Add new item:</h3><br>
+            <label for="name">Part name:</label><br>
+            <input type="text" [(ngModel)]="name" required formControlName="name" placeholder="Name"><br>
+
+            <label for="description">Car make:</label><br>
+            <input type="text" [(ngModel)]="carMake" required formControlName="carMake" placeholder="Make"><br>
+
+            <label for="description">Car model:</label><br>
+            <input type="text" [(ngModel)]="carModel" required formControlName="carModel" placeholder="Model"><br>
+
+            <label for="description">Description:</label><br>
+            <input type="text" [(ngModel)]="description" required formControlName="description"
+                placeholder="Description"><br>
+
+            <label for="brand">Part brand:</label><br>
+            <input type="brand" [(ngModel)]="brand" required formControlName="brand" placeholder="Brand"><br>
+        </div>
+        <div class="column drugi">
+            <label for="oe_number">OE part number:</label><br>
+            <input type="text" [(ngModel)]="oe_number" required formControlName="oe_number"
+                placeholder="OE part number"><br>
+
+            <label for="category">Category:</label><br>
+            <!-- <select name="category" id="category">
+                <option value="Engine">Engine</option>
+                <option value="Drivetrain">Drivetrain</option>
+                <option value="Exterior">Exterior</option>
+                <option value="Interior">Interior</option>
+                <option value="Brakes">Brakes</option>
+                <option value="Steering & suspension">Steering & suspension</option>
+            </select><br> -->
+            <input type="text" [(ngModel)]="category" required formControlName="category"><br>
+
+            <label for="price">Price:</label><br>
+            <input type="number" [(ngModel)]="price" required formControlName="price" placeholder="Price"><br>
+
+            <label for="price">Stock:</label><br>
+            <input type="number" [(ngModel)]="stock" required formControlName="stock" placeholder="Stock"><br>
+
+            <label for="image">Image: <small>(If not selected old picture will remain)</small></label><br>
+            <input type="file" #slika [(ngModel)]="image" (change)="onFileSelected(slika)" id="image"
+                formControlName="image" placeholder="Image"><br>
+
+            <button type="submit"
+                [disabled]="!(name!=null && description!=null && brand!=null && oe_number!=null && price!=null  && stock!= null)"
+                style="margin-top: 10px;">Edit
+                item</button>
+        </div>
+    </form>
+</div>

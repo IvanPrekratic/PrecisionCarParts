@@ -10,6 +10,7 @@ import { Item } from '../managing/item.model';
     providedIn: 'root'
 })
 export class DataService {
+    itemToEdit!: Item;
     constructor(private http: HttpClient, private router: Router) { }
 
     addUser(user: UserReg) {

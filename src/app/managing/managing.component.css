@@ -1,3 +1,36 @@
-:host {
-  display: block;
+.nosi-formu {
+  display: flex;
+
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.column {
+  padding: 0 15px 0 15px;
+}
+
+.drugi {
+  margin-top: 40px;
+}
+
+.row {
+  margin: 0;
+}
+
+.product {
+  width: 80%;
+  margin: 10px 20px 0 20px;
+  background-color: aqua;
+}
+
+.background {
+  margin: 0;
+  height: 25vh;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }

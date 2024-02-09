@@ -13,10 +13,12 @@ import { User } from '../../user/user.model';
 })
 export class NavComponent implements OnInit {
 
+    broj: string = '';
     constructor(public router: Router, public auth: AuthService) { }
 
     authenticated = false;
     authChangeSubscription: Subscription | null = null;
+
 
 
     ngOnInit() {
@@ -26,8 +28,8 @@ export class NavComponent implements OnInit {
             .subscribe(res => {
                 this.authenticated = this.auth.isAuthenticated();
             });
-        console.log('auth: '+this.authenticated);
-        console.log('suthserice: '+ this.auth.isAuthenticated());
+        console.log('auth: ' + this.authenticated);
+        console.log('suthserice: ' + this.auth.isAuthenticated());
     }
     getClass(a: string) {
         return this.router.url == a ? 'active' : '';
@@ -35,7 +37,11 @@ export class NavComponent implements OnInit {
     logout() {
         this.auth.logout();
     }
-    reRoute(ruta: string){
+    reRoute(ruta: string) {
         this.router.navigate([ruta]);
+    }
+    searchByPartNumber() {
+        console.log(this.broj);
+
     }
 }
