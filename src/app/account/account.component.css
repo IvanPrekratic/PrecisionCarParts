@@ -1,0 +1,105 @@
+.main {
+  width: 90%;
+}
+
+.lijevo {
+  width: 25%;
+  background-color: aliceblue;
+  border-right: 1px solid #ececec;
+}
+
+.naslov {
+  padding-left: 15px;
+}
+
+.desno {
+  width: 75%;
+  background-color: aliceblue;
+}
+
+.vrh {
+  height: 70px;
+  background-color: aliceblue;
+  display: flex;
+  align-items: center;
+}
+
+.account-user {
+  background-color: aliceblue;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.user-pic {
+  width: 70px;
+  border-radius: 50%;
+  margin-left: 15px;
+}
+
+.username {
+  margin-left: 15px;
+  margin-bottom: 0;
+}
+
+.about-user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.fontic {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+}
+
+ul {
+  list-style-type: none;
+  margin-left: 15px;
+  padding: 0;
+}
+
+li:not(:last-of-type) {
+  border-bottom: 1px solid #ececec;
+}
+
+a {
+  text-decoration: none;
+}
+
+a.fontic {
+  display: block;
+}
+
+a:hover.fontic {
+  border-right: 3px solid #5E5E5E;
+}
+
+.narudzbe {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.narudzbaId {
+  margin-left: 20px;
+}
+
+.gumbNarudzba {
+  font-size: 16px;
+  height: 30px;
+  padding: 0;
+  width: 70px;
+  padding: 0;
+  border: 0.5px solid black;
+  line-height: 1em;
+  margin-right: 30px;
+}
+
+.nosiElemente {
+  display: flex;
+  flex-direction: row;
+  width: 40%;
+  justify-content: space-between;
+}

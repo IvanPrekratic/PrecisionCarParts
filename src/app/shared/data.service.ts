@@ -5,6 +5,7 @@ import { UserReg } from '../user/user-reg.model';
 import { map } from 'rxjs/operators';
 import { ItemUpl } from '../managing/item-upl.model';
 import { Item } from '../managing/item.model';
+import { Order } from '../cart/order.model';
 
 @Injectable({
     providedIn: 'root'
@@ -24,9 +25,26 @@ export class DataService {
             .pipe(map((res: any) => {
                 const users = [];
                 for (let key in res) {
-                    users.push({ ...res[key], id: key });
+                    users.push({ ...res[key], userID: key });
                 }
                 return users;
+            }));
+    }
+
+    addOrder(order: Order) {
+        return this.http.post('https://jspro-16702-default-rtdb.europe-west1.firebasedatabase.app/orders.json', order).subscribe((res: any) => {
+            console.log(res);
+        });
+    }
+
+    getOrders() {
+        return this.http.get('https://jspro-16702-default-rtdb.europe-west1.firebasedatabase.app/orders.json')
+            .pipe(map((res: any) => {
+                const orders = [];
+                for (let key in res) {
+                    orders.push({ ...res[key], orderId: key });
+                }
+                return orders;
             }));
     }
 

@@ -8,6 +8,10 @@ import { ManagingComponent } from './managing/managing.component';
 import { CartComponent } from './cart/cart.component';
 import { EditItemComponent } from './edit-item/edit-item.component';
 import { ViewItemComponent } from './view-item/view-item.component';
+import { AboutComponent } from './about/about.component';
+import { AccountComponent } from './account/account.component';
+import { AccountDetailsComponent } from './account-details/account-details.component';
+import { OrderViewComponent } from './order-view/order-view.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -18,6 +22,10 @@ const routes: Routes = [
   { path: 'managing', component: ManagingComponent },
   { path: 'cart', component: CartComponent },
   { path: 'edit', component: EditItemComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'account', component: AccountComponent },
+  { path: 'account/details', component: AccountDetailsComponent },
+  { path: 'account/:id', component: OrderViewComponent },
 ];
 
 @NgModule({

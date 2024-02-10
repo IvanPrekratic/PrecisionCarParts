@@ -3,6 +3,7 @@ import { Item } from '../managing/item.model';
 import { BehaviorSubject } from 'rxjs';
 import { DataService } from '../shared/data.service';
 import { ItemUpl } from '../managing/item-upl.model';
+import { Order } from '../cart/order.model';
 
 @Injectable({
     providedIn: 'root'
@@ -10,6 +11,8 @@ import { ItemUpl } from '../managing/item-upl.model';
 export class ItemsService {
     items: Item[] = [];
     itemSubject: BehaviorSubject<Item[]> = new BehaviorSubject<Item[]>([]);
+    orders: Order[] = [];
+    orderSubject: BehaviorSubject<Order[]> = new BehaviorSubject<Order[]>([]);
 
     constructor(private dataService: DataService) {
         this.init()
@@ -20,10 +23,18 @@ export class ItemsService {
             .subscribe(res => {
                 this.items = res;
                 this.itemSubject.next(this.items);
+            });
+        this.dataService.getOrders()
+            .subscribe(res => {
+                this.orders = res;
+                this.orderSubject.next(this.orders);
             })
     }
     getItems() {
         return this.itemSubject;
+    }
+    getOrders() {
+        return this.orderSubject;
     }
     deleteItem(id: string) {
         this.dataService.deleteItem(id)
@@ -45,4 +56,5 @@ export class ItemsService {
         let item: ItemUpl = new ItemUpl(itemInfo.name, itemInfo.carMake, itemInfo.carModel, itemInfo.description, itemInfo.brand, itemInfo.oe_number, itemInfo.price, itemInfo.stock, imagename, itemInfo.category);
         this.dataService.addItem(item);
     }
+
 }

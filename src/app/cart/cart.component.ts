@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 import jspdf from 'jspdf';
 
 import html2canvas from 'html2canvas';
+import { DataService } from '../shared/data.service';
+import { Order } from './order.model';
 
 @Component({
     selector: 'app-cart',
@@ -15,7 +17,7 @@ import html2canvas from 'html2canvas';
     styleUrl: './cart.component.css',
 })
 export class CartComponent implements OnInit {
-    constructor(private router: Router, private auth: AuthService, private cartService: CartService) { }
+    constructor(private router: Router, private auth: AuthService, private cartService: CartService, private data: DataService) { }
 
     curUser: User | null = null;
     itemsInCart: CartElement[] = [];
@@ -41,19 +43,19 @@ export class CartComponent implements OnInit {
     }
 
     checkout() {
+        this.data.addOrder(new Order(this.itemsInCart, this.curUser as User, new Date));
         let data = document.getElementById('contentToConvert');
         html2canvas(data as HTMLElement).then(canvas => {
-            // Few necessary setting options  
             let imgWidth = 208;
             let pageHeight = 295;
             let imgHeight = canvas.height * imgWidth / canvas.width;
             let heightLeft = imgHeight;
 
             const contentDataURL = canvas.toDataURL('image/png');
-            let pdf = new jspdf('p', 'mm', 'a4'); // A4 size page of PDF
+            let pdf = new jspdf('p', 'mm', 'a4');
             let position = 0;
             pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)
-            pdf.save('Order.pdf'); // Generated PDF   
+            pdf.save('Order.pdf');
         });
     }
 

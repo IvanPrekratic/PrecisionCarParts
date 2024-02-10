@@ -1,0 +1,22 @@
+.main {
+  margin-top: 15px;
+  width: 90%;
+}
+
+
+.lijevo {
+  width: 55%;
+}
+
+.desno {
+  width: 45%;
+}
+
+.slika {
+  max-width: 100%;
+}
+
+.naslov {
+  text-align: center;
+  margin-bottom: 20px;
+}

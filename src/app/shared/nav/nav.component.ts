@@ -2,8 +2,10 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
-import { Subscription } from 'rxjs';
+import { BehaviorSubject, Subscription } from 'rxjs';
 import { User } from '../../user/user.model';
+import { ItemsService } from '../../products/items.service';
+import { Item } from '../../managing/item.model';
 
 @Component({
     selector: 'app-nav',
@@ -14,7 +16,7 @@ import { User } from '../../user/user.model';
 export class NavComponent implements OnInit {
 
     broj: string = '';
-    constructor(public router: Router, public auth: AuthService) { }
+    constructor(public router: Router, public auth: AuthService, private itemService: ItemsService) { }
 
     authenticated = false;
     authChangeSubscription: Subscription | null = null;
@@ -41,7 +43,15 @@ export class NavComponent implements OnInit {
         this.router.navigate([ruta]);
     }
     searchByPartNumber() {
+        let item: Item
         console.log(this.broj);
-
+        let items: Item[] = []
+        let itemSubject: BehaviorSubject<Item[]> = this.itemService.getItems();
+        let subscription: Subscription = itemSubject
+            .subscribe(res => {
+                items = res;
+                let item: Item | undefined = items.find(item => item.oe_number === this.broj)
+                this.router.navigate(['products', item!.itemID])
+            });
     }
 }

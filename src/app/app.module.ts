@@ -21,6 +21,10 @@ import { CartElement } from './cart/cart.element';
 import { CartService } from './shared/cart.service';
 import { EditItemComponent } from './edit-item/edit-item.component';
 import { ViewItemComponent } from './view-item/view-item.component';
+import { AboutComponent } from './about/about.component';
+import { AccountComponent } from './account/account.component';
+import { AccountDetailsComponent } from './account-details/account-details.component';
+import { OrderViewComponent } from './order-view/order-view.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,11 @@ import { ViewItemComponent } from './view-item/view-item.component';
     ManagingComponent,
     CartComponent,
     EditItemComponent,
-    ViewItemComponent
+    ViewItemComponent,
+    AboutComponent,
+    AccountComponent,
+    AccountDetailsComponent,
+    OrderViewComponent
   ],
   imports: [
     BrowserModule,
