@@ -1,3 +1,147 @@
-:host {
+.main {
+  width: 90%;
+}
+
+.lijevo {
+  width: 25%;
+  background-color: aliceblue;
+  border-right: 1px solid #ececec;
+}
+
+.naslov {
+  padding-left: 15px;
+}
+
+.desno {
+  width: 75%;
+  background-color: aliceblue;
+}
+
+.vrh {
+  height: 70px;
+  background-color: aliceblue;
+  display: flex;
+  align-items: center;
+}
+
+.account-user {
+  background-color: aliceblue;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.user-pic {
+  width: 70px;
+  border-radius: 50%;
+  margin-left: 15px;
+}
+
+.username {
+  margin-left: 15px;
+  margin-bottom: 0;
+}
+
+.about-user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.fontic {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+}
+
+ul {
+  list-style-type: none;
+  margin-left: 15px;
+  padding: 0;
+}
+
+li:not(:last-of-type) {
+  border-bottom: 1px solid #ececec;
+}
+
+a.fontic {
+  text-decoration: none;
+}
+
+a.fontic {
   display: block;
+}
+
+a:hover.fontic {
+  border-right: 3px solid #5E5E5E;
+}
+
+.details {
+  font-size: 16px;
+  height: 30px;
+  padding: 0;
+  width: 70px;
+  padding: 0;
+  line-height: 1em;
+  margin-right: 30px;
+}
+
+.redovi {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.narudzbaId {
+  margin-bottom: 0;
+}
+
+.user-detail {
+  margin-left: 30px;
+  margin-bottom: 0;
+}
+
+.nosiElemente {
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+  justify-content: left;
+}
+
+hr {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+a.narudzbaId {
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
+}
+
+a:hover.narudzbaId {
+  cursor: pointer;
+  text-decoration: none;
+  color: rgb(1, 1, 184);
+}
+
+.narudzbaDatum {
+  margin-bottom: 0;
+  margin-left: 10px;
+}
+
+.nosiLijevo {
+  margin-left: 30px;
+  display: flex;
+  flex-direction: row;
+  width: 20%;
+  justify-content: left;
+}
+
+.pass {
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  justify-content: left;
 }

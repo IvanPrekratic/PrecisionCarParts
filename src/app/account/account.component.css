@@ -97,9 +97,28 @@ a:hover.fontic {
   margin-right: 30px;
 }
 
+.details {
+  font-size: 16px;
+  height: 30px;
+  padding: 0;
+  width: 70px;
+  padding: 0;
+  line-height: 1em;
+  margin-right: 30px;
+}
+
 .nosiElemente {
   display: flex;
   flex-direction: row;
   width: 40%;
   justify-content: space-between;
+}
+
+hr {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.donja-crta p {
+  margin-bottom: 0;
 }

@@ -20,6 +20,14 @@
             </ul>
         </div>
         <div class="desno">
+            <div class="narudzbe row donja-crta">
+                <p class="narudzbaId">This is a list of your previous orders</p>
+                <div class="nosiElemente">
+                    <p class="narudzbaDatum">Order date:</p>
+                    <p class="details">Details:</p>
+                </div>
+            </div>
+            <hr>
             <div *ngFor="let order of userOrders" class="narudzbe row">
                 <a [routerLink]="[order.orderId]" class="narudzbaId">{{order.orderId}}</a>
                 <div class="nosiElemente">

@@ -12,11 +12,12 @@ import { Router } from '@angular/router';
 	styleUrl: './account.component.css'
 })
 export class AccountComponent implements OnInit, OnDestroy {
-	style: any;
+
 	constructor(private auth: AuthService, private itemService: ItemsService, private router: Router) { }
 
 	curUser: User | null = null;
 	hovered: boolean = false;
+	style: any;
 
 	orders: Order[] = [];
 	userOrders: Order[] = [];
@@ -46,9 +47,6 @@ export class AccountComponent implements OnInit, OnDestroy {
 		} else {
 			return;
 		}
-
-
-		//: 3px solid #5E5E5E;
 	}
 	naElement(orderId: string | undefined) {
 		console.log(orderId)

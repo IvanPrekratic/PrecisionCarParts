@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 import { ItemUpl } from '../managing/item-upl.model';
 import { Item } from '../managing/item.model';
 import { Order } from '../cart/order.model';
+import { User } from '../user/user.model';
 
 @Injectable({
     providedIn: 'root'
@@ -16,6 +17,12 @@ export class DataService {
 
     addUser(user: UserReg) {
         return this.http.post('https://jspro-16702-default-rtdb.europe-west1.firebasedatabase.app/users.json', user).subscribe((res: any) => {
+            console.log(res);
+        });;
+    }
+
+    editUser(user: User) {
+        return this.http.patch(`https://jspro-16702-default-rtdb.europe-west1.firebasedatabase.app/users/${user.userID}.json`, user).subscribe((res: any) => {
             console.log(res);
         });;
     }
