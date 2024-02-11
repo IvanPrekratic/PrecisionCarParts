@@ -11,6 +11,7 @@ import { Category } from './category.model';
 import { Item } from './item.model';
 import { Subscription } from 'rxjs';
 import { ItemsService } from '../products/items.service';
+import { User } from '../user/user.model';
 
 @Component({
     selector: 'app-managing',
@@ -30,9 +31,11 @@ export class ManagingComponent {
     items: Item[] = [];
     itemSubject: BehaviorSubject<Item[]> | null = null;
     subscription: Subscription | null = null;
+    curUser: User | null = null;
 
     constructor(private router: Router, private auth: AuthService, private data: DataService, private itemService: ItemsService) { }
     ngOnInit(): void {
+        this.curUser = this.auth.getUser();
         this.data.getCategories().subscribe(res => {
             this.categories = res;
             this.categorySubject.next(this.categories);

@@ -25,6 +25,8 @@ import { AboutComponent } from './about/about.component';
 import { AccountComponent } from './account/account.component';
 import { AccountDetailsComponent } from './account-details/account-details.component';
 import { OrderViewComponent } from './order-view/order-view.component';
+import { ManageUsersComponent } from './manage-users/manage-users.component';
+import { FooterComponent } from './shared/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { OrderViewComponent } from './order-view/order-view.component';
     AboutComponent,
     AccountComponent,
     AccountDetailsComponent,
-    OrderViewComponent
+    OrderViewComponent,
+    ManageUsersComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

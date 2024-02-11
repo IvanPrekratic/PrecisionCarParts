@@ -75,5 +75,12 @@ export class AuthService {
         return this.user != null;
     }
 
+    deleteUser(userID: string) {
+        this.data.deleteUser(userID)
+            .subscribe((res => {
+                this.users = this.users.filter(c => c.userID != userID);
+                this.userSubject.next(this.users);
+            }));
+    }
 
 }

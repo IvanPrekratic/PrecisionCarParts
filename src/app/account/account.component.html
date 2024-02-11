@@ -15,8 +15,10 @@
             <ul>
                 <li><a [routerLink]="['/account']" class="fontic" [ngStyle]="vracaStyle()">ORDERS</a>
                 </li>
-                <li><a [routerLink]="['details']" class="fontic" (mouseover)="this.hovered = true;"
+                <li><a [routerLink]="['/account/details']" class="fontic" (mouseover)="this.hovered = true;"
                         (mouseout)="this.hovered = false;">PERSONAL DETAILS</a></li>
+                <li *ngIf="curUser?.admin"><a [routerLink]="['/users']" class="fontic"
+                        (mouseover)="this.hovered = true;" (mouseout)="this.hovered = false;">MANAGE USERS</a></li>
             </ul>
         </div>
         <div class="desno">

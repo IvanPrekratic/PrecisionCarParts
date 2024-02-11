@@ -18,6 +18,8 @@
                 </li>
                 <li><a [routerLink]="['/account/details']" class="fontic" [ngStyle]="vracaStyle()">PERSONAL DETAILS</a>
                 </li>
+                <li *ngIf="curUser?.admin"><a [routerLink]="['/users']" class="fontic"
+                        (mouseover)="this.hovered = true;" (mouseout)="this.hovered = false;">MANAGE USERS</a></li>
             </ul>
         </div>
         <div class="desno">

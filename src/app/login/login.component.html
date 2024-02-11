@@ -1,15 +1,21 @@
 <app-nav></app-nav>
-<div>
-    <h2>Login</h2>
-    <form (submit)="submit()" [formGroup]="loginForm">
-      <label for="username">Username:</label><br>
-      <input type="text" formControlName="username" required placeholder="Enter username"><br>
-  
-      <label for="password">Password:</label><br>
-      <input type="password" formControlName="password" required placeholder="Enter password"><br>
-  
-      <button type="submit">Login</button>
-      <button type="button" (click)="btnClick()">Register</button>
-    </form>
-    <div *ngIf="errorMessage !== null">{{errorMessage}}</div>
-  </div>
+<div class="container noseci">
+	<div class="forma">
+		<h2>Login</h2>
+		<form (submit)="submit()" [formGroup]="loginForm">
+			<label for="username">Username:</label><br>
+			<input type="text" formControlName="username" required placeholder="Enter username"><br>
+
+			<label for="password">Password:</label><br>
+			<input type="password" formControlName="password" required placeholder="Enter password"><br>
+
+			<div class="gumbi">
+				<button type="submit">Login</button>
+				<button type="button" (click)="btnClick()">Register</button>
+			</div>
+
+		</form>
+		<div class="error">{{errorMessage}}</div>
+	</div>
+
+</div>

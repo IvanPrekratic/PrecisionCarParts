@@ -1,0 +1,55 @@
+<app-nav></app-nav>
+<div class="main container-fluid">
+    <div class="row vrh">
+        <h3 class="naslov">Users</h3>
+    </div>
+    <div class="row">
+        <div class="lijevo">
+            <div class="account-user">
+                <img src="../../assets/user.jpg" class="user-pic">
+                <div class="about-user">
+                    <p class="username">{{curUser?.username}}</p>
+                    <small class="username">{{curUser?.email}}</small>
+                </div>
+            </div>
+            <ul>
+                <li><a [routerLink]="['/account']" class="fontic" (mouseover)="this.hovered = true;"
+                        (mouseout)="this.hovered = false;">ORDERS</a>
+                </li>
+                <li><a [routerLink]="['/account/details']" class="fontic" (mouseover)="this.hovered = true;"
+                        (mouseout)="this.hovered = false;">PERSONAL DETAILS</a></li>
+                <li><a [routerLink]="['/users']" class="fontic" [ngStyle]="vracaStyle()">MANAGE USERS</a></li>
+            </ul>
+        </div>
+        <div class="desno">
+            <div class="narudzbe row donja-crta">
+                <div class="a-ono">
+                    <p class="narudzbaId">Username:</p>
+                    <p class="narudzbaId">Role:</p>
+                </div>
+                <div class="prazan"></div>
+                <div class="nosiElemente">
+
+                </div>
+            </div>
+            <hr>
+            <div *ngFor="let user of users" class="narudzbe row">
+                <div class="a-ono">
+                    <p class="narudzbaId">{{user.username}}</p>
+                    <p *ngIf="user.admin === 1">Admin</p>
+                    <p *ngIf="user.admin === 0">User</p>
+                </div>
+                <div class="prazan"></div>
+                <div class="nosiElemente">
+                    <button class="gumbNarudzba" (click)="deleteUser(user)">Delete user</button>
+                    <button *ngIf="user.admin === 0" class="gumbNarudzba" (click)="makeAdmin(user)">Make
+                        admin</button>
+                    <button *ngIf="user.admin === 1" class="gumbNarudzba" (click)="makeUser(user)">Make
+                        user</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

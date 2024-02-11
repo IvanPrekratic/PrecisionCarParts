@@ -1,3 +1,9 @@
+.noseci {
+  width: 80%;
+  margin: 0 auto;
+  height: calc(100vh - (148px + 55px));
+}
+
 .container {
   display: flex;
   flex-direction: row;
@@ -6,8 +12,9 @@
   padding-bottom: 20px;
   border: 1px solid black;
   border-radius: 10px;
-  background-color: aquamarine;
+  background-color: #f0f5fa;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-top: 15px;
 }
 
 

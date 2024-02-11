@@ -1,0 +1,49 @@
+.glavni {
+  background-color: rgba(214, 113, 7, .92);
+  height: 4px;
+  display: flex;
+  flex-direction: column;
+}
+
+.container-fluid {
+  margin: 0;
+  padding: 0;
+}
+
+.drugi {
+  margin: 0 auto;
+  padding: 0px;
+  width: 100%;
+  height: 30px;
+  background-color: #1b2a40;
+}
+
+.treci {
+  margin: 0;
+  background-color: #41516d;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cetvrti {
+  margin: 0;
+  background-color: #1b2a40;
+  height: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tekst-div {
+  width: 45%;
+  text-align: center;
+}
+
+p {
+  color: white;
+  margin: 0;
+}

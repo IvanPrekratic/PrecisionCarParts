@@ -27,6 +27,10 @@ export class DataService {
         });;
     }
 
+    deleteUser(userID: string) {
+        return this.http.delete(`https://jspro-16702-default-rtdb.europe-west1.firebasedatabase.app/users/${userID}.json`);
+    }
+
     getUsers() {
         return this.http.get('https://jspro-16702-default-rtdb.europe-west1.firebasedatabase.app/users.json')
             .pipe(map((res: any) => {

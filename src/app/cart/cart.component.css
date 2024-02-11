@@ -1,6 +1,7 @@
 body {
   margin-top: 20px;
   background: #eee;
+
 }
 
 .ui-w-40 {
@@ -22,4 +23,8 @@ body {
   -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset;
   vertical-align: middle;
+}
+
+.ae {
+  height: calc(100vh - (148px + 150px));
 }

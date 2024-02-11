@@ -54,7 +54,7 @@
             <button type="button" class="btn-sm btn-danger" (click)="removeFilters()">Remove filters</button>
         </div>
     </div>
-    <div *ngFor="let k of itemsToShow; let i = index" class="row justify-content-center product">
+    <div *ngFor="let k of itemsToShow; let i = index" class="row justify-content-center product ">
         <div class="col-2 bg-image background" [style.background-image]="'url(../../assets/' + k.image + ')'">
         </div>
         <div class="col-7">

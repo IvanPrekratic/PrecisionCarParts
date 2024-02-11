@@ -12,6 +12,7 @@ import { AboutComponent } from './about/about.component';
 import { AccountComponent } from './account/account.component';
 import { AccountDetailsComponent } from './account-details/account-details.component';
 import { OrderViewComponent } from './order-view/order-view.component';
+import { ManageUsersComponent } from './manage-users/manage-users.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'account', component: AccountComponent },
   { path: 'account/details', component: AccountDetailsComponent },
   { path: 'account/:id', component: OrderViewComponent },
+  { path: 'users', component: ManageUsersComponent },
 ];
 
 @NgModule({

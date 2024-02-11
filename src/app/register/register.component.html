@@ -1,5 +1,5 @@
 <app-nav></app-nav>
-<div>
+<div class="container-fluid noseci">
     <h2>Register form:</h2>
     <form (submit)="submit()" [formGroup]="registerForm">
         <label for="username">Username:</label><br>
@@ -20,6 +20,6 @@
         <label for="email">E-mail:</label><br>
         <input type="email" required formControlName="email" placeholder="Email"><br>
 
-        <button type="submit">Register!</button>
+        <button type="submit" class="gumb">Register!</button>
     </form>
 </div>
