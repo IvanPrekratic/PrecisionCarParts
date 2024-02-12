@@ -18,9 +18,10 @@
 }
 
 .product-container {
-  padding-left: 5vw;
   display: flex;
   flex-direction: row;
+  justify-content: center;
+
   scroll-behavior: smooth;
   height: 400px;
 }
@@ -33,7 +34,6 @@
   flex: 0 0 auto;
   width: 250px;
   height: 270px;
-  margin-right: 40px;
 }
 
 .product-image {
@@ -125,8 +125,13 @@
 
 .pozadina {
   margin: 0 auto;
+  padding-left: 30px;
+  padding-right: 30px;
   background-color: #efefef;
   width: 98vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .zadnji {

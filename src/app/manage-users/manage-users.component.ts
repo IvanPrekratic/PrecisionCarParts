@@ -100,7 +100,6 @@ export class ManageUsersComponent implements OnInit {
                     if (element === user)
                         this.users.splice(index, 1);
                 });
-                console.log(user.userID)
                 this.auth.deleteUser(user.userID);
                 Swal.fire({
                     title: "Success!",

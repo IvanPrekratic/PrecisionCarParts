@@ -30,8 +30,7 @@ export class AccountComponent implements OnInit, OnDestroy {
 		this.subscriptionorder = this.orderSubject
 			.subscribe(res => {
 				this.orders = res;
-				this.userOrders = this.orders.filter((order) => order.user?.userID === this.curUser?.userID)
-				console.log('Filtrirane narudžbe:', this.userOrders);
+				this.userOrders = this.orders.filter((order) => order.user?.userID === this.curUser?.userID);
 			});
 	}
 	ngOnDestroy() {

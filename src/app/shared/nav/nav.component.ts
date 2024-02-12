@@ -31,8 +31,6 @@ export class NavComponent implements OnInit {
             .subscribe(res => {
                 this.authenticated = this.auth.isAuthenticated();
             });
-        console.log('auth: ' + this.authenticated);
-        console.log('suthserice: ' + this.auth.isAuthenticated());
     }
     getClass(a: string) {
         return this.router.url == a ? 'active' : '';

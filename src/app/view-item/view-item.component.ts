@@ -36,12 +36,9 @@ export class ViewItemComponent {
 		this.itemSubject = this.itemService.getItems();
 		this.subscription = this.itemSubject
 			.subscribe(res => {
-				console.log('subscr');
 				this.items = res;
-				console.log(this.items)
 				this.item = this.items.find(item => item.itemID === this.itemId) as Item;
 			});
-		console.log(this.items)
 	}
 	ngOnDestroy() {
 		if (this.subscription)

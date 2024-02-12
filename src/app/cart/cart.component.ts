@@ -33,13 +33,11 @@ export class CartComponent implements OnInit {
                 this.items = res;
                 this.itemSubject.next(this.items);
             });
-        console.log('evo me ')
         this.curUser = this.auth.getUser();
         this.itemsInCart = this.cartService.retrieveFromCart();
         this.itemsInCart.forEach(item => {
             this.totalPrice += item.item?.price! * item.quantity;
         });
-        console.log(this.itemsInCart);
     }
 
     removeFromCart(item: CartElement) {

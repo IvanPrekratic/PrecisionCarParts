@@ -36,7 +36,6 @@ export class HomeComponent implements OnInit {
         this.subscriptionorder = this.orderSubject
             .subscribe(res => {
                 this.orders = res;
-                console.log(this.orders)
             });
     }
     logout() {

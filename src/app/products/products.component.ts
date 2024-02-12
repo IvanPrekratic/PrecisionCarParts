@@ -47,7 +47,6 @@ export class ProductsComponent implements OnInit, OnDestroy {
             .subscribe(res => {
                 this.items = res;
                 this.itemsToShow = this.items;
-                console.log(this.items)
             });
 
         setTimeout(() => {

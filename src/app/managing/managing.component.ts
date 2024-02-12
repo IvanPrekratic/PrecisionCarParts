@@ -39,7 +39,6 @@ export class ManagingComponent {
         this.data.getCategories().subscribe(res => {
             this.categories = res;
             this.categorySubject.next(this.categories);
-            console.log(this.categories)
         });
         this.itemForm = new FormGroup({
             'name': new FormControl(null, [Validators.required]),
@@ -57,7 +56,6 @@ export class ManagingComponent {
         this.subscription = this.itemSubject
             .subscribe(res => {
                 this.items = res;
-                console.log(this.items)
             });
 
 
