@@ -90,4 +90,12 @@ export class ManagingComponent {
         this.data.itemToEdit = item;
         this.router.navigate(['/edit']);
     }
+    deleteItem(item: Item) {
+        this.items.forEach((el, index) => {
+            if (el.itemID === item.itemID) {
+                this.items.splice(index, 1);
+            }
+        })
+        this.itemService.deleteItem(item.itemID);
+    }
 }
