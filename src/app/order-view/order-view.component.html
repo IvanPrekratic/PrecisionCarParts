@@ -8,7 +8,8 @@
             <div id="contentToConvert">
                 <div class="table-responsive">
                     <p>User: {{curUser?.name}}</p>
-                    <p>Order date: {{userOrders.at(0)?.date | date:'dd.MM.yyyy.'}}</p>
+                    <p>Order made: {{userOrders.at(0)?.date | date:'dd.MM.yyyy.'}} at {{userOrders.at(0)?.date |
+                        date:'H:mm:ss'}}</p>
                     <table class="table table-bordered m-0">
                         <thead>
                             <tr>
@@ -26,7 +27,8 @@
                                         <img [src]="'../../assets/' + element.item?.image"
                                             class="d-block ui-w-40 ui-bordered mr-4" alt="">
                                         <div class="media-body">
-                                            <a href="#" class="d-block text-dark">{{element.item?.name}}</a>
+                                            <a [routerLink]="['/products',element.item?.itemID]"
+                                                class="d-block text-dark">{{element.item?.name}}</a>
                                             <small>
                                                 <span class="text-muted">OE number:
                                                     {{element.item?.oe_number}}</span>&nbsp;

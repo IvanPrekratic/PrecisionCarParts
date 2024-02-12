@@ -28,12 +28,21 @@ export class CartService {
     }
     retrieveFromCart() {
         let u = localStorage.getItem('cart');
-        this.itemsInCart = JSON.parse(u as string) as CartElement[];
-        return this.itemsInCart;
+        if (u === null) {
+            return this.itemsInCart;
+        } else {
+            this.itemsInCart = JSON.parse(u as string) as CartElement[];
+            return this.itemsInCart;
+        }
+
     }
     removeFromCart(item: CartElement) {
         this.itemsInCart.splice(this.itemsInCart.indexOf(item), 1);
         localStorage.removeItem('cart');
         localStorage.setItem('cart', JSON.stringify(this.itemsInCart));
+    }
+    clearCart() {
+        this.itemsInCart = [];
+        localStorage.removeItem('cart');
     }
 }

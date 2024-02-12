@@ -6,6 +6,7 @@ import { BehaviorSubject, Subscription } from 'rxjs';
 import { User } from '../../user/user.model';
 import { ItemsService } from '../../products/items.service';
 import { Item } from '../../managing/item.model';
+import { CartService } from '../cart.service';
 
 @Component({
     selector: 'app-nav',
@@ -16,7 +17,7 @@ import { Item } from '../../managing/item.model';
 export class NavComponent implements OnInit {
 
     broj: string = '';
-    constructor(public router: Router, public auth: AuthService, private itemService: ItemsService) { }
+    constructor(public router: Router, public auth: AuthService, private itemService: ItemsService, private cartService: CartService) { }
 
     authenticated = false;
     authChangeSubscription: Subscription | null = null;
@@ -38,6 +39,7 @@ export class NavComponent implements OnInit {
     }
     logout() {
         this.auth.logout();
+        this.cartService.clearCart();
     }
     reRoute(ruta: string) {
         this.router.navigate([ruta]);

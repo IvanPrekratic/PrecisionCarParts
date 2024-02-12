@@ -10,6 +10,7 @@ import jspdf from 'jspdf';
 import html2canvas from 'html2canvas';
 import { DataService } from '../shared/data.service';
 import { Order } from './order.model';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
     selector: 'app-cart',
@@ -22,7 +23,16 @@ export class CartComponent implements OnInit {
     curUser: User | null = null;
     itemsInCart: CartElement[] = [];
     totalPrice: number = 0;
+
+    items: Item[] = [];
+    itemSubject: BehaviorSubject<Item[]> = new BehaviorSubject<Item[]>([]);
+
     ngOnInit() {
+        this.data.getItems()
+            .subscribe(res => {
+                this.items = res;
+                this.itemSubject.next(this.items);
+            });
         console.log('evo me ')
         this.curUser = this.auth.getUser();
         this.itemsInCart = this.cartService.retrieveFromCart();
@@ -44,6 +54,17 @@ export class CartComponent implements OnInit {
 
     checkout() {
         this.data.addOrder(new Order(this.itemsInCart, this.curUser as User, new Date));
+        this.itemsInCart.forEach(item => {
+            let newItem: Item = new Item(item.item?.name as string, item.item?.carMake as string, item.item?.carModel as string,
+                item.item?.description as string, item.item?.brand as string, item.item?.oe_number as string,
+                item.item?.price as number, item.item?.stock as number - item.quantity, item.item?.image as string,
+                item.item?.category as string, item.item?.itemID as string);
+            this.data.editItem(newItem).subscribe((res => {
+                this.items[this.items.findIndex(c => c.itemID == newItem.itemID)] = newItem;
+            }), error => {
+                console.log(error);
+            });;
+        })
         let data = document.getElementById('contentToConvert');
         html2canvas(data as HTMLElement).then(canvas => {
             let imgWidth = 208;
@@ -55,8 +76,10 @@ export class CartComponent implements OnInit {
             let pdf = new jspdf('p', 'mm', 'a4');
             let position = 0;
             pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)
-            pdf.save('Order.pdf');
+            pdf.save('Order_confirmation.pdf');
         });
+        this.itemsInCart = [];
+        this.cartService.clearCart();
     }
 
 }

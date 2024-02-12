@@ -8,11 +8,11 @@
     </div>
     <div class="row deals justify-content-md-center pozadina">
         <div class="col ">
-            <h4 class="centar">Deals of the Month</h4>
+            <h4 class="centar velicina">Deals of the Month</h4>
         </div>
     </div>
     <div class="row pozadina zadnji">
-        <div class="product-container" *ngFor="let item of items.slice(0,5)">
+        <div class="product-container" *ngFor="let item of items.slice(0,4)">
             <div class="product-card">
                 <div class="product-image">
                     <span class="discount-tag"></span>
@@ -22,7 +22,8 @@
                 <div class="product-info">
                     <h2 class="product-brand">{{item.brand | uppercase}} {{item.name}}</h2>
                     <p class="product-short-des pomak">{{item.description}}</p>
-                    <span class="price pomak">{{item.price}} €</span><span class="actual-price"></span>
+                    <span class="price pomak">{{item.price |number
+                        : '1.2'}} €</span><span class="actual-price"></span>
                 </div>
             </div>
         </div>

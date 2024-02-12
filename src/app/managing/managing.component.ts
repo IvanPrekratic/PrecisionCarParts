@@ -20,7 +20,7 @@ import { User } from '../user/user.model';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ManagingComponent {
-    novi = false;
+    novi = true;
     edit = false;
     zapocniEdit = false;
     editRow: number | null = null;

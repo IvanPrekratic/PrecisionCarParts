@@ -48,20 +48,31 @@ export class ViewItemComponent {
 			this.subscription.unsubscribe();
 	}
 	addToCart(item: Item) {
-		if (this.kolicina > item.stock) {
+		if (this.auth.isAuthenticated() === false) {
 			Swal.fire({
-				title: "Stock error",
-				text: "Not enough items in stock!",
-				icon: "warning"
+				title: "Can't add to cart!",
+				text: "To add items in cart you have to login",
+				icon: "error"
 			});
 		} else {
-			this.cartService.addToCart(item, this.kolicina);
-			Swal.fire({
-				title: "Success!",
-				text: "Item is added to your cart!",
-				icon: "success"
-			});
+			if (this.kolicina > item.stock) {
+				Swal.fire({
+					title: "Stock error",
+					text: "Not enough items in stock!",
+					icon: "warning"
+				});
+			} else {
+				this.cartService.addToCart(item, this.kolicina);
+				Swal.fire({
+					title: "Success!",
+					text: "Item is added to your cart!",
+					icon: "success"
+				});
+			}
 		}
+
+
+
 
 	}
 }

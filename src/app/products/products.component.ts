@@ -92,22 +92,29 @@ export class ProductsComponent implements OnInit, OnDestroy {
         });
     }
     addToCart(item: Item, idx: number) {
-        if (this.kolicina.at(idx) as number > item.stock) {
+        if (this.auth.isAuthenticated() === false) {
             Swal.fire({
-                title: "Stock error",
-                text: "Not enough items in stock!",
-                icon: "warning"
+                title: "Can't add to cart!",
+                text: "To add items in cart you have to login",
+                icon: "error"
             });
         } else {
-            this.cartService.addToCart(item, this.kolicina.at(idx) as number);
+            if (this.kolicina.at(idx) as number > item.stock) {
+                Swal.fire({
+                    title: "Stock error",
+                    text: "Not enough items in stock!",
+                    icon: "warning"
+                });
+            } else {
+                this.cartService.addToCart(item, this.kolicina.at(idx) as number);
 
-            console.log(this.kolicina)
-            Swal.fire({
-                title: "Success!",
-                text: "Item is added to your cart!",
-                icon: "success"
-            });
+                console.log(this.kolicina)
+                Swal.fire({
+                    title: "Success!",
+                    text: "Item is added to your cart!",
+                    icon: "success"
+                });
+            }
         }
-
     }
 }

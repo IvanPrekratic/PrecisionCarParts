@@ -33,7 +33,8 @@
             <div *ngFor="let order of userOrders" class="narudzbe row">
                 <a [routerLink]="[order.orderId]" class="narudzbaId">{{order.orderId}}</a>
                 <div class="nosiElemente">
-                    <p class="narudzbaDatum">{{order.date | date:'dd.MM.yyyy.'}}</p>
+                    <p class="narudzbaDatum">{{order.date | date:'dd.MM.yyyy.'}} at {{order.date |
+                        date:'H:mm:ss'}}</p>
                     <button class="gumbNarudzba" (click)="naElement(order.orderId)">Details</button>
                 </div>
 

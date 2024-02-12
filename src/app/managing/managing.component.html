@@ -2,11 +2,11 @@
 
 <div class="glavni">
     <div style="display: flex; justify-content: center;">
-        <button type="button" (click)="this.novi = !this.novi;">Add new item</button>
-        <button type="button" (click)="this.edit = !this.edit;">Edit existing items</button>
+        <button type="button" (click)="this.novi = true; this.edit = false;">Add new item</button>
+        <button type="button" (click)="this.edit = true; this.novi = false;">Edit existing items</button>
     </div>
 
-    <div *ngIf="this.novi" class="row" style="display: flex; justify-content: center;">
+    <div *ngIf="this.novi" class="row margina" style="display: flex; justify-content: center;">
 
         <form (submit)="submit()" [formGroup]="itemForm" class="nosi-formu">
             <div class="column">
@@ -33,7 +33,7 @@
                     placeholder="OE part number"><br>
 
                 <label for="category">Category:</label><br>
-                <select name="category" id="category">
+                <select name="category" id="category" required formControlName="category">
                     <option value="Engine">Engine</option>
                     <option value="Drivetrain">Drivetrain</option>
                     <option value="Exterior">Exterior</option>
@@ -60,7 +60,7 @@
             </div>
         </form>
     </div>
-    <div *ngIf="this.edit" class="center">
+    <div *ngIf="this.edit" class="center margina">
         <div *ngFor="let k of items; let i = index" class="row justify-content-center product">
             <div class="col-2 bg-image background" [style.background-image]="'url(../../assets/' + k.image + ')'">
             </div>
